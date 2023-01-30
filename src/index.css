@@ -11,6 +11,8 @@
 
 body {
     font-family: 'Nunito', sans-serif;
+    background-color: #FFF;
+    overflow-x: hidden;
 }
 
 html, body {
