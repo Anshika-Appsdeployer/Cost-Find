@@ -1,16 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import changeBathroom from "./changeBathroom";
+import Counter from "./Counter";
 
 
 const store = configureStore({
     reducer: {
-        changeBathroom,
+        counter: Counter,
     },
 });
-// ({
-//     reducer: {
-//       home: HouseReducer,
-//     },
-//   });
 
 export default store;

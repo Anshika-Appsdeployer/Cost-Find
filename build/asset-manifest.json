@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.732a0ded.css",
+    "main.js": "/static/js/main.aba6db11.js",
+    "static/media/bedroombg.jpg": "/static/media/bedroombg.d5220d9e11f47d898e81.jpg",
+    "static/media/bedroom.png": "/static/media/bedroom.b454a903f93288e4f879.png",
+    "static/media/livingroom.png": "/static/media/livingroom.bd3beec72d68b576c54c.png",
+    "static/media/kitchen.png": "/static/media/kitchen.1bb891dfbefef0bf2709.png",
+    "index.html": "/index.html",
+    "main.732a0ded.css.map": "/static/css/main.732a0ded.css.map",
+    "main.aba6db11.js.map": "/static/js/main.aba6db11.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.732a0ded.css",
+    "static/js/main.aba6db11.js"
+  ]
+}
