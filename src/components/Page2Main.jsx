@@ -1,34 +1,67 @@
-import React from "react";
+import { React, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import livingBg from "../assets/livingroombg.jpg";
 import Bulb from "../assets/helpbulb.png";
+import {
+  TOGGLE_LIVINGROOM,
+} from "../redux/Counter";
 
 const Page2Main = () => {
+  const dispatch = useDispatch();
+  const [isToggled, setIsToggled] = useState(false);
+
   return (
     <>
-      <div className="w-full flex itmes-center justify-center flex-row p-2 gap-2">
-        <div className="w-[200px] flex flex-col p-2 bg-white">
+      <div className="flex justify-center flex-row p-2 gap-2">
+        <div className="w-[400px] flex flex-col m-4 p-2 bg-white">
           <p className="flex flex-row p-3 text-slate-500 text-sm">
             Living Room
-          </p>
-          <form>
-          <label class="relative inline-flex items-center">
-            <input type="checkbox" class="form-checkbox" />
-            <span class="w-[40px] h-[20-px] ml-[10px] bg-gray-500 rounded-full shadow-inner"></span>
-          </label>
-          </form>
+            <label
+              forEach="check"
+              className="relative w-8 ml-auto flex flex-row bg-gray-300 cursor-pointer rounded-full"
+            >
+              <input type="checkbox" id="check" className="sr-only peer" onClick={() => {
+                dispatch(TOGGLE_LIVINGROOM());
 
-          <p className="flex flex-row p-3 text-slate-500 text-sm">Kitchen</p>
+              }}/>
+              <span className="w-3 h-3 m-1 bg-white rounded-full peer-checked:bg-purple-800 peer-checked:translate-x-3 transition-all duration-400"></span>
+            </label>
+          </p>
+
+          <p className="flex flex-row p-3 text-slate-500 text-sm">
+            Kitchen
+            <label
+              forEach="check"
+              className="relative w-8 ml-auto flex flex-row bg-gray-300 cursor-pointer rounded-full"
+            >
+              <input type="checkbox" id="check" className="sr-only peer" />
+              <span className="w-3 h-3 m-1 bg-white rounded-full peer-checked:bg-purple-800 peer-checked:translate-x-3 transition-all duration-400"></span>
+            </label>
+          </p>
           <p className="flex flex-row p-3 text-slate-500 text-sm">
             Master Bedroom
+            <label
+              forEach="check"
+              className="relative w-8 ml-auto flex flex-row bg-gray-300 cursor-pointer rounded-full"
+            >
+              <input type="checkbox" id="check" className="sr-only peer" />
+              <span className="w-3 h-3 m-1 bg-white rounded-full peer-checked:bg-purple-800 peer-checked:translate-x-3 transition-all duration-400"></span>
+            </label>
           </p>
           <p className="flex flex-row p-3 text-slate-500 text-sm">
             Master Bathroom
+            <label
+              forEach="check"
+              className="relative w-8 ml-auto flex flex-row bg-gray-300 cursor-pointer rounded-full"
+            >
+              <input type="checkbox" id="check" className="sr-only peer" />
+              <span className="w-3 h-3 m-1 bg-white rounded-full peer-checked:bg-purple-800 peer-checked:translate-x-3 transition-all duration-400"></span>
+            </label>
           </p>
-          <p className="flex flex-row p-3 text-slate-500 text-sm">Bedroom 2</p>
         </div>
 
-        <div className="flex flex-col p-2 bg-white">
+        <div className="flex flex-col m-4 p-2 bg-white">
           <img
             src={livingBg}
             className="w-[400px] flex items-center justify-center"
@@ -78,7 +111,7 @@ const Page2Main = () => {
           </button>
         </div>
 
-        <div className="w-lg md:h-[130px] first-letter:flex items-center justify-center p-2 shadow-xl shadow-slate-200 ">
+        <div className="w-[400px] m-4 h-[130px] first-letter:flex items-center justify-center p-2 shadow-xl shadow-slate-200 ">
           <div className="flex items-center justify-center text-lg  mt-2 text-slate-500">
             Net Estimate ₹ 0
           </div>

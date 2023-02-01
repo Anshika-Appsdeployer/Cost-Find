@@ -22,3 +22,9 @@ export const decBathroom = () => {
         type: "DECREMENT_BATHROOM"
     }
 }
+
+export const toggleLivingroom = () => {
+    return {
+        type: "TOGGLE_LIVINGROOM"
+    }
+}

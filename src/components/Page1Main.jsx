@@ -13,13 +13,26 @@ import {
 } from "../redux/Counter";
 import house from "../components/house";
 
-
 const Page1Main = () => {
   // const myState1 = useSelector((state) => state.changeBathroom);
   const carpetArea = useSelector((state) => state.counter.carpetArea);
   const dispatch = useDispatch();
   const [count1, setBedroomCount] = useState(1);
   const [count2, setBathroomCount] = useState(1);
+  const [carpetAreaInput, setcarpetAreaInput] = useState(0);
+
+  const carpetAreaFeedValue = (e) => {
+    setcarpetAreaInput(e.target.value);
+  };
+
+//   const handleSubmit = () => {
+//     if (carpetAreaInput < 300) {
+//       alert("Please enter valid input.");
+//       } else {
+//         dispatch(userCarpetArea(carpetAreaInput));
+//         navigate("/Page2Main");
+//     }
+//   };
 
   const decrementBedroom = () => {
     if (count1 > 1) {
@@ -91,7 +104,6 @@ const Page1Main = () => {
               className="p-1"
               onClick={() => {
                 dispatch(DECREMENT_BEDROOM(count1));
-                setBedroomCount(count1 - 1);
                 decrementBedroom();
               }}
             >
@@ -106,7 +118,6 @@ const Page1Main = () => {
               className="p-1"
               onClick={() => {
                 dispatch(INCREMENT_BEDROOM(bedroomCard));
-                setBedroomCount(count1 + 1);
                 incrementBedroom();
               }}
             >
@@ -119,7 +130,6 @@ const Page1Main = () => {
               className="p-1"
               onClick={() => {
                 dispatch(DECREMENT_BATHROOM(count2));
-                setBathroomCount(count2 - 1);
                 decrementBathroom();
               }}
             >
@@ -134,7 +144,6 @@ const Page1Main = () => {
               className="p-1"
               onClick={() => {
                 dispatch(INCREMENT_BATHROOM(bathroomCard));
-                setBathroomCount(count2 + 1);
                 incrementBathroom();
               }}
             >
@@ -143,19 +152,26 @@ const Page1Main = () => {
           </div>
         </div>
 
-        <h6 className="w-full flex items-center justify-center mt-4 text-slate-500 text-sm">
-          Assumed Carpet Area (Sq. ft.)
-        </h6>
-        <h3 className="flex items-center justify-center p-1 text-cyan-600 text-lg font-semibold">
-          {carpetArea} Sq. ft.
-        </h3>
-        <h6 className="w-full flex items-center justify-center text-slate-500 text-sm">
-          Please enter your Carpet Area (Sq. ft.)
-        </h6>
+        
+          <h6 className="w-full flex items-center justify-center mt-4 text-slate-500 text-sm">
+            Assumed Carpet Area (Sq. ft.)
+          </h6>
+          <h3 className="flex items-center justify-center p-1 text-cyan-600 text-lg font-semibold">
+            {carpetArea} Sq. ft.
+          </h3>
+          <h6 className="w-full flex items-center justify-center text-slate-500 text-sm">
+            Please enter your Carpet Area (Sq. ft.)
+          </h6>
 
-        <div className="flex m-4 items-center justify-center rounded-sm p-0.5 bg-green-500">
-          <input className="outline-none" />
-        </div>
+          <div className="flex m-4 items-center justify-center rounded-sm p-0.5 bg-green-500">
+            <input
+              className="outline-none required"
+              value={carpetAreaInput}
+              placeholder="0"
+              onChange={(e) => carpetAreaFeedValue(e)}
+            />
+          </div>
+
         <h6 className="w-full flex items-center justify-center text-slate-500 text-sm">
           Assumed Configuration
         </h6>
@@ -204,7 +220,7 @@ const Page1Main = () => {
 
         <button
           type="button"
-          className="flex items-center justify-center m-auto text-sm text-white px-4 py-2 bg-green-400"
+          className="flex items-center justify-center m-auto text-sm text-white px-4 py-2 bg-green-400 mb-4"
         >
           <Link to={"/page2"}> Next {">"} </Link>
         </button>
