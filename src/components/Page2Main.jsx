@@ -11,6 +11,10 @@ const Page2Main = () => {
   const dispatch = useDispatch();
   const [isToggled, setIsToggled] = useState(false);
 
+  const setClickedToggle = (e) => {
+    setIsToggled(e.target.value);
+  }
+
   return (
     <>
       <div className="flex justify-center flex-row p-2 gap-2">
@@ -61,7 +65,7 @@ const Page2Main = () => {
           </p>
         </div>
 
-        <div className="flex flex-col m-4 p-2 bg-white">
+        <div className="flex flex-col m-4 p-2 bg-white outline-2">
           <img
             src={livingBg}
             className="w-[400px] flex items-center justify-center"
@@ -75,7 +79,7 @@ const Page2Main = () => {
                 className="m-2 flex flex-start checked:bg-green-400"
               />
             </span>
-            Enable Extra Bedroom 2
+            Enable Living Room
           </p>
           <p className="flex flex-start p-2 text-slate-500 text-sm">
             How would you like to spend on this room?
